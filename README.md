@@ -1,2 +1,2 @@
-# test2
-my second file
+# SMS_Official
+Student Information Management System

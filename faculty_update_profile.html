@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>faculty profile Form</title>
+    <script
+    src="https://kit.fontawesome.com/64d58efce2.js"
+    crossorigin="anonymous"
+  ></script>
+
+<script src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.2/js/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/metisMenu.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/slicknav.min.css">
+    <!-- amchart css -->
+    <!-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" /> -->
+    <!-- others css -->
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/default-css.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- modernizr css -->
+    <script src="js/modernizr-2.8.3.min.js"></script>
+  <link rel="stylesheet" href="css/faculty_update_profile.css">
+</head>
+<body id="update">
+
+  
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+      <div class="loader"></div>
+  </div>
+  <!-- preloader area end -->
+  <!-- page container area start -->
+  <div class="page-container">
+      <!-- sidebar menu area start -->
+      <div class="sidebar-menu">
+          <div class="sidebar-header">
+              <div class="logo">
+                 <h3 style="color: #fff;">St.Johns College</h3>
+              </div>
+          </div>
+          <div class="main-menu">
+              <div class="menu-inner">
+                  <nav>
+                      <ul class="metismenu" id="menu">
+                          <li>
+                              <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Dashboard</span></a>
+                              <ul class="collapse">
+                                  
+                                <li><a href="./faculty_view_profile.html" >Profile</a></li>
+                                    <li><a href="subject_sem_regulation.html" target="_parent">Subjects/Regulation</a></li>
+                                    <li><a href="./fill_marks.html" target="_parent">Submit Score</a></li>
+                                    <li><a href="./fetch_results.html" target="_parent">Check Score</a></li>
+
+
+                                    <li><a href="#" target="_parent">Overall Performance</a></li>
+
+                              </ul>
+                             
+                          </li>
+                          <li>
+                              <a href="#" aria-expanded="true" target="_parent"><i class="ti-mobile" ></i><span>Contact Us
+                                  </span></a>
+                             
+                          </li>
+                          <li>
+                              <a href="#" aria-expanded="true" target="_parent"><i class="ti-comments"></i><span>Feedback Form</span></a>
+                             
+                          </li>
+                          
+                      </ul>
+                  </nav>
+              </div>
+          </div>
+      </div>
+      <!-- sidebar menu area end -->
+      <!-- main content area start -->
+      <div class="main-content">
+          <!-- header area start -->
+          <div class="header-area">
+              <div class="row align-items-center">
+                  <!-- nav and search button -->
+                  <div class="col-md-6 col-sm-8 clearfix">
+                      <div class="nav-btn pull-left">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </div>
+
+                      <!-- <div class="search-box pull-left">
+                          <form action="#">
+                              <input type="text" name="search" placeholder="Search..." required>
+                              <i class="ti-search"></i>
+                          </form>
+                      </div> -->
+
+                  </div>
+                  <!-- profile info & task notification -->
+                  <div class="col-md-6 col-sm-4 clearfix">
+                      <ul class="notification-area pull-right">
+
+                         
+
+                          <li class="dropdown">
+                              <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
+                                  <span style="background-color: #8a3147;">2</span>
+                              </i>
+                              <div class="dropdown-menu bell-notify-box notify-box">
+                                  <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+                                  <div class="nofity-list">
+                                      <a href="#" class="notify-item">
+                                          <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                          <div class="notify-text">
+                                              <p>You have Changed Your Password</p>
+                                              <span>Just Now</span>
+                                          </div>
+                                      </a>
+                                      <a href="#" class="notify-item">
+                                          <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                          <div class="notify-text">
+                                              <p>New Commetns On Post</p>
+                                              <span>30 Seconds ago</span>
+                                          </div>
+                                      </a>
+                                      <a href="#" class="notify-item">
+                                          <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                          <div class="notify-text">
+                                              <p>Some special like you</p>
+                                              <span>Just Now</span>
+                                          </div>
+                                      </a>
+                                      <a href="#" class="notify-item">
+                                          <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                          <div class="notify-text">
+                                              <p>New Commetns On Post</p>
+                                              <span>30 Seconds ago</span>
+                                          </div>
+                                      </a>
+                                      <a href="#" class="notify-item">
+                                          <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                          <div class="notify-text">
+                                              <p>Some special like you</p>
+                                              <span>Just Now</span>
+                                          </div>
+                                      </a>
+                                      <a href="#" class="notify-item">
+                                          <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                          <div class="notify-text">
+                                              <p>You have Changed Your Password</p>
+                                              <span>Just Now</span>
+                                          </div>
+                                      </a>
+                                      <a href="#" class="notify-item">
+                                          <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                          <div class="notify-text">
+                                              <p>You have Changed Your Password</p>
+                                              <span>Just Now</span>
+                                          </div>
+                                      </a>
+                                  </div>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <!-- header area end -->
+          <!-- page title area start -->
+          <div class="page-title-area">
+              <div class="row align-items-center">
+                  <div class="col-sm-6">
+                      <div class="breadcrumbs-area clearfix">
+                          <h4 class="page-title pull-left">Dashboard</h4>
+                          <ul class="breadcrumbs pull-left">
+                              <li> <a href="./faculty_dashboard.html"> Home</a></li>
+                              <li><span>Update Page</span></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 clearfix">
+                      <div class="user-profile pull-right">
+                          <img class="avatar user-thumb" src="assets/images/avatar.png" alt="avatar">
+                          <h4 class="user-name dropdown-toggle" id="faculty-name" data-toggle="dropdown"><i class="fa fa-angle-down"></i></h4>
+                          <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Message</a>
+                              <a class="dropdown-item" href="./faculty_login.html" id="sign-out-btn">Sign Out</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+           <!-- page title area end -->
+
+            <!--Main Content area starts-->
+
+          <div class="main-content-inner">
+    <div class="container"> 
+  <center><h2>Update Profile</h2></center>
+
+    <form>
+ <hr>
+
+  <strong><label> Name : </label> </strong><input type="text" name="name" id="name"> <br>
+ <strong> <label> Email :</label> </strong><input type="email" name="email" id="email"><br> 
+ <strong> <label> Mobile Number :</label></strong> <input type="text" name="phone" id="phone"><br> 
+
+ <hr>
+ 
+
+
+
+  <!--Previous Graduation Details-->
+
+      
+
+<!--Present Graduation Details-->
+
+
+        <center><h2> Department Details</h2></center><hr>
+
+       <strong><label for=""> Unique Identity Number : </label></strong><input type="text" name="uid" pattern="[0-9]{4}" id="id" required ><br> 
+        
+            <label>Select Branch:</label>
+            <select id="facultybranch" name="branch">
+              <option value="">Branch</option>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="MECH">MECH</option>
+              <option value="EEE">EEE</option>
+              <option value="CIVIL">CIVIL</option>
+              <option value="AI">ARTIFICIAL INTELLIGENCE</option>
+              
+            </select><br> 
+          
+         <strong> <label>Year Of Joining :</label>  </strong><input type="text" name="join" id="join" pattern="[0-9]{4}" required><br>
+         <hr>
+         <div>
+         
+          <center><button type="button" id="update" onclick="up_()" >Update</button>
+ 
+        </div>
+   
+</form>
+
+
+</div>
+<!--main content area end-->
+               </div>
+               <!-- row area start-->
+           </div>
+       </div>
+       <!-- main content area end -->
+       <!-- footer area start-->
+       <footer>
+           <div class="footer-area">
+<p>St. John's College of Engineering and Technology, Yerrakota.</p>
+              
+           </div>
+       </footer>
+       <!-- footer area end-->
+   </div>
+   <!-- page container area end -->
+   
+    <!-- jquery latest version -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+     <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/metisMenu.min.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+
+   
+    <script src="js/plugins.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="./js/faculty_dashboard.js"></script>
+<script src="./js/faculty_update_profile.js"></script>
+</body>
+</html>
